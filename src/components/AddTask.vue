@@ -2,7 +2,7 @@
     <div>
         <form @submit.prevent="onSubmit">
             <input type="text" v-model="title">
-            <button class="btn">Добавить задачу</button>
+            <button :disabled="title == ''" class="btn">Добавить задачу</button>
         </form>
     </div>
 </template>
@@ -28,7 +28,7 @@ export default {
 }
 </script>
 
-<style scope>
+<style scoped>
 form {
     display: flex;
     align-items: baseline;
@@ -45,5 +45,11 @@ input {
 button {
     width: 100%;
     max-width: 150px;
+}
+
+button.btn[disabled], button.btn[disabled]:hover {
+    background: #fafafa;
+    color: #606060;
+    border: 2px solid #fafafa;
 }
 </style>
